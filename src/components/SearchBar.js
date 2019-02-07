@@ -2,17 +2,24 @@ import React from "react";
 
 class SearchBar extends React.Component {
   state = { term: '' };
+  //Keeps the browser from submitting automatically and refreshing the page
+  //using function() keyword will lead to a broken value of .this
+  //arrow funciton will replace the binding function
+  onFormSubmit = event => {
+    event.preventDefault();
+    this.props.onSubmit(this.state.term); //using it inside a class based component, not funcitonal.
+  };
 
   render() {
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form onSubmit={() => this.onFormSubmit()} className="ui form">
           <div className="field">
-          <label>Search for an image!</label>
-          <input
-            type="text"
-            value={this.state.term}
-            onChange={(e) => this.setState({ term: e.target.value })} /* don't use an () with an event handler in state*/
+            <label>Search for an image!</label>
+            <input
+              type="text"
+              value={this.state.term}
+              onChange={(e) => this.setState({ term: e.target.value })} /* don't use an () with an event handler in state*/
             />
           </div>
         </form>
