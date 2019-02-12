@@ -1,7 +1,12 @@
 # image-fetcher
+
 React, Axios, etc
 
 Practicing with multiple components
+
+# Feb 11, 2019:
+
+Search bar will not return results until external API source has verified my credentials
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
